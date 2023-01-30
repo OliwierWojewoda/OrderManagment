@@ -22,7 +22,6 @@ export class EditProductComponent implements OnInit {
           .subscribe({
             next: (productDetails) => {
               this.productDetails = productDetails;
-              console.log(productDetails)
             }
           })
         }

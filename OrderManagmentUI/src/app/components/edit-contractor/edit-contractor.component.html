@@ -14,16 +14,16 @@
         </div>
 
         <div class="inputs">
-            <label for="surName">Surname: </label>
-            <input type="text" id="surName" name="surName" [(ngModel)]="contractorDetails.city">
+            <label for="city">City: </label>
+            <input type="text" id="city" name="city" [(ngModel)]="contractorDetails.city">
         </div>
         <div class="inputs">
-            <label for="phone">Phone: </label>
-            <input type="text" id="phone" name="phone" [(ngModel)]="contractorDetails.address">
+            <label for="address">Address: </label>
+            <input type="text" id="address" name="address" [(ngModel)]="contractorDetails.address">
         </div>
-        <div class="inputs">
-            <label for="Birtdate">Birthdate: </label>
-            <input type="text" id="birthDate" name="birthDate" [ngModel]="contractorDetails.postalCode">
+        <div class="postalCode">
+            <label for="postalCode">PostalCode: </label>
+            <input type="text" id="postalCode" name="postalCode" [ngModel]="contractorDetails.postalCode">
         </div> 
         <button id="savebutton" type="submit">Save</button>
     </form>

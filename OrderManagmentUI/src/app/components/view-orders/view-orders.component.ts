@@ -15,7 +15,6 @@ export class ViewOrdersComponent implements OnInit {
        .subscribe({
         next: (orders) => {
           this.orders = orders
-          console.log(orders)
         }
        });
 

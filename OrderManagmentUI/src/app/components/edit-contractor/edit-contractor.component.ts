@@ -22,7 +22,6 @@ export class EditContractorComponent implements OnInit {
           .subscribe({
             next: (contractorDetails) => {
               this.contractorDetails = contractorDetails;
-              console.log(contractorDetails)
             }
           })
         }

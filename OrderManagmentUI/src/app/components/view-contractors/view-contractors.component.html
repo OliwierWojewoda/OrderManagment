@@ -1,0 +1,21 @@
+<p class="text-center">Contractors List</p>
+<table class="table table-bordered ">
+    <thead>
+      <tr>
+      <th >ID</th>
+      <th >Name</th>
+      <th >PostalCode</th>
+      <th >City</th>
+      <th >Address</th>
+    </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let contractor of contractors">
+      <td >{{contractor.id}}<a [routerLink]="['/editContractor',contractor.id]">View</a></td>
+      <td >{{contractor.name}}</td>
+      <td >{{contractor.postalCode}}</td>
+      <td >{{contractor.city}}</td>
+      <td >{{contractor.address}}</td>
+      </tr>
+    </tbody>
+  </table> 

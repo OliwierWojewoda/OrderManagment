@@ -1,0 +1,31 @@
+<p>edit-contractor works!</p>
+<div id="outerdiv">
+    <h1>Edit Employee</h1>
+    <div id="formdiv"> 
+    <form id="form" #form="ngForm" (ngSubmit)="updateContractor()">
+         <div class="inputs">
+            <label for="id">ID: </label>
+            <input type="text" id="id" readonly name="id" [(ngModel)]="contractorDetails.id">
+        </div>
+
+        <div class="inputs">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" [(ngModel)]="contractorDetails.name">
+        </div>
+
+        <div class="inputs">
+            <label for="city">City: </label>
+            <input type="text" id="city" name="city" [(ngModel)]="contractorDetails.city">
+        </div>
+        <div class="inputs">
+            <label for="address">Address: </label>
+            <input type="text" id="address" name="address" [(ngModel)]="contractorDetails.address">
+        </div>
+        <div class="postalCode">
+            <label for="postalCode">PostalCode: </label>
+            <input type="text" id="postalCode" name="postalCode" [ngModel]="contractorDetails.postalCode">
+        </div> 
+        <button id="savebutton" type="submit">Save</button>
+    </form>
+ </div>
+</div> 

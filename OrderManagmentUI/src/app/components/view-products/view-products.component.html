@@ -1,0 +1,21 @@
+<p class="text-center">Products</p>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+    <th >ID</th>
+    <th >Name</th>
+    <th >Vat</th>
+    <th >Netto</th>
+    <th >Brutto</th>
+  </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let product of products">
+    <td >{{product.id}}<a [routerLink]="['/editProduct',product.id]">View</a></td>
+    <td >{{product.name}}</td>
+    <td >{{product.vat}}</td>
+    <td >{{product.nettoPrice}}</td>
+    <td >{{product.bruttoPrice}}</td>
+    </tr>
+  </tbody>
+</table> 

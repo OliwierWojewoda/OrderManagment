@@ -1,0 +1,21 @@
+<p class="text-center">Orders</p>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+      <th >ID</th>
+      <th >CreationDate</th>
+      <th >ContractorName</th>
+      <th >OverallBrutto</th>
+      <th >OverallNetto</th>
+    </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let order of orders">
+      <td >{{order.id}}<a [routerLink]="['/editOrder',order.id]">View</a></td>
+      <td >{{order.createdAt | date:'yyyy-MM-dd'}}</td>
+      <td >{{order.contractor.name}}<a [routerLink]="['/editContractor',order.contractor.id]">View</a></td>
+      <td >{{order.overallBrutto}}</td>
+      <td >{{order.overallNetto}}</td>
+      </tr>
+    </tbody>
+  </table>   

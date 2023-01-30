@@ -1,0 +1,64 @@
+<p>view-order-products works!</p>
+<p class="text-center">Orders</p>
+    <h1>Edit Order</h1>
+    <form id="form" #form="ngForm" (ngSubmit)="updateOrder()" >
+         <div class="inputs">
+            <label for="id">ID: </label>
+            <input type="text" id="id" readonly name="id" [(ngModel)]="orderDetails.id">
+        </div>
+
+        <div class="inputs">
+            <label for="name">Date: </label>
+            <input type="text" id="name" name="name" [ngModel]="orderDetails.createdAt | date:'yyyy-MM-dd'">
+        </div>
+
+        <div class="inputs">
+            <label for="vat">Contractor: </label>
+            <input type="text" id="vat" name="vat" [(ngModel)]="orderDetails.contractor.name">
+        </div>
+        <div class="inputs">
+            <label for="bruttoPrice">BruttoPrice: </label>
+            <input required readonly type="text" id="bruttoPrice" name="bruttoPrice" [(ngModel)]="orderDetails.overallBrutto">
+        </div>
+        <div class="inputs">
+            <label for="nettoPrice">NettoPrice: </label>
+            <input required readonly type="text" id="nettoPrice" name="nettoPrice" [ngModel]="orderDetails.overallNetto">
+        </div> 
+        <button id="savebutton" type="submit">Save</button>
+    </form>
+    <h1>Add Prodcuct</h1>> 
+    <form id="form3" #form="ngForm" (ngSubmit)="addOrderProducts(newOrderProduct)" >
+        <div class="inputs">
+            <label for="id">OrderID: </label>
+            <input placeholder="{{orderDetails.id}}" type="text" id="id" readonly name="id" [(ngModel)]="newOrderProduct.orderId">
+        </div>
+        <div class="inputs">
+            <label for="productid">Product: </label>
+            <input type="text" id="productid" name="productid" [(ngModel)]="newOrderProduct.productId">
+        </div>
+        <div class="inputs">
+            <label for="quantity">Quantity </label>
+            <input type="text" id="quantity" name="quantity" [(ngModel)]="newOrderProduct.quantity">
+        </div> 
+        <button id="savebutton" type="submit">Save</button>
+    </form>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+      <th >ID</th>
+      <th >Quantity</th>
+      <th >ProductName</th>
+      <th >Netto</th>
+      <th >Brutto</th>
+    </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let order of orderDetails.orderedProducts">
+      <td >{{order.id}}</td>
+      <td >{{order.quantity}}</td>
+      <td >{{order.product.name}}<a [routerLink]="['/editProduct',order.product.id]">View</a></td>
+      <td >{{order.nettoPrice}}</td>
+      <td >{{order.bruttoPrice}}</td>
+      </tr>
+    </tbody>
+  </table> 

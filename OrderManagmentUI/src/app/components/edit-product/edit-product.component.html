@@ -1,0 +1,31 @@
+<p>edit-product works!</p>
+<div id="outerdiv">
+    <h1>Edit Employee</h1>
+    <div id="formdiv"> 
+    <form id="form" #form="ngForm" (ngSubmit)="updateProduct()">
+         <div class="inputs">
+            <label for="id">ID: </label>
+            <input type="text" id="id" readonly name="id" [(ngModel)]="productDetails.id">
+        </div>
+
+        <div class="inputs">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" [(ngModel)]="productDetails.name">
+        </div>
+
+        <div class="inputs">
+            <label for="surName">Surname: </label>
+            <input type="text" id="surName" name="surName" [(ngModel)]="productDetails.vat">
+        </div>
+        <div class="inputs">
+            <label for="phone">Phone: </label>
+            <input type="text" id="phone" name="phone" [(ngModel)]="productDetails.bruttoPrice">
+        </div>
+        <div class="inputs">
+            <label for="Birtdate">Birthdate: </label>
+            <input type="text" id="birthDate" name="birthDate" [ngModel]="productDetails.nettoPrice">
+        </div> 
+        <button id="savebutton" type="submit">Save</button>
+    </form>
+ </div>
+</div> 

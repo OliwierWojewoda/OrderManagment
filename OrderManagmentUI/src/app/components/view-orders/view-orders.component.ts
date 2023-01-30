@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewOrder } from 'src/app/models/ViewOrder';
+import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 
 @Component({
   selector: 'app-view-orders',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-orders.component.css']
 })
 export class ViewOrdersComponent implements OnInit {
+  orders: ViewOrder[] = [];
+  constructor(private ordermanagmentservice: OrderManagmentService){}
+     ngOnInit() : void{
+       this.ordermanagmentservice.getOrders()
+       .subscribe({
+        next: (orders) => {
+          this.orders = orders
+          console.log(orders)
+        }
+       });
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+}}

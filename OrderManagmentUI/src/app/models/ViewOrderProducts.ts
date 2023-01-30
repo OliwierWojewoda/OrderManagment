@@ -1,6 +1,6 @@
 import { ViewProduct } from "./ViewProduct";
 
-export class ViewOrder{
+export class ViewOrderProducts{
     id?: number;
     date ="";
     product:ViewProduct= new ViewProduct()

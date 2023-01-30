@@ -1,17 +1,21 @@
 <p>view-products works!</p>
- <table class="table">
+ <table class="table table-bordered table-dark">
   <thead>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Netto</th>
-    <th>Vat</th>
-    <th>Brutto</th>
+    <tr>
+    <th >ID</th>
+    <th >Name</th>
+    <th >Vat</th>
+    <th >Netto</th>
+    <th >Brutto</th>
+  </tr>
   </thead>
+  <tbody>
    <tr *ngFor="let product of products">
-    <td>{{product.id}}</td>
-    <td>{{product.name}}</td>
-    <td>{{product.vat}}</td>
-    <td>{{product.nettoPrice}}</td>
-    <td>{{product.bruttoPrice}}</td>
+    <td >{{product.id}}<a [routerLink]="['/editProduct',product.id]">View</a></td>
+    <td >{{product.name}}</td>
+    <td >{{product.vat}}</td>
+    <td >{{product.nettoPrice}}</td>
+    <td >{{product.bruttoPrice}}</td>
     </tr>
+  </tbody>
 </table> 

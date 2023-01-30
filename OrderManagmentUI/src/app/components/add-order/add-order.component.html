@@ -1,0 +1,11 @@
+<p>add-order works!</p>
+    <h1>Add New Order</h1>
+    <form id="form" #form="ngForm" (ngSubmit)="addOrder(newOrder)">
+        <div class="inputs">
+            <label for="name">ContractorID: </label>
+            <input type="text" id="name" name="name" [(ngModel)]="newOrder.contractorId">
+        </div>
+        <div class="inputs">
+            <button id="savebutton" type="submit">Save</button>
+        </div>
+    </form>

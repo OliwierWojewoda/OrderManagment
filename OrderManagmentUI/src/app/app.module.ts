@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddContractorComponent } from './components/add-contractor/add-contractor.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddContractorComponent } from './components/add-contractor/add-contract
     EditProductComponent,
     AddProductComponent,
     AddContractorComponent,
+    AddOrderComponent,
   ],
   imports: [
     BrowserModule,

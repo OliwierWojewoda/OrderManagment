@@ -7,6 +7,7 @@ import { ViewProduct } from '../models/ViewProduct';
 import { ViewContractor } from '../models/ViewContractor';
 import { ViewOrderProducts } from '../models/ViewOrderProducts';
 import { NewOrderProducts } from '../models/NewOrderProducts';
+import { NewOrder } from '../models/NewOrder';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,5 +54,8 @@ export class OrderManagmentService {
   }
   public addOrderProducts(orderProducts:NewOrderProducts): Observable<NewOrderProducts[]> {
     return this.http.post<NewOrderProducts[]>(`${environment.apiUrl}/OrderedProducts/Add`,orderProducts);
+  }
+  public addOrder(order:NewOrder): Observable<NewOrder[]> {
+    return this.http.post<NewOrder[]>(`${environment.apiUrl}/Orders/Add`,order);
   }
 }

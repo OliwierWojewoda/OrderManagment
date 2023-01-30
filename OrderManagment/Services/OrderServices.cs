@@ -27,7 +27,7 @@ namespace OrderManagment.Services
         }
         public async Task<ViewOrder> GetOrderById(int Id)
         {
-            var order = _context.Orders.Include(c => c.OrderedProducts).ThenInclude(t => t.Product).Include(c => c.Contractor).FirstOrDefault(c => c.Id == Id);
+            var order = await _context.Orders.Include(c => c.OrderedProducts).ThenInclude(t => t.Product).Include(c => c.Contractor).FirstOrDefaultAsync(c => c.Id == Id);
             order.OverallBrutto = order.CalculateBrutto(order.OrderedProducts);
             order.OverallNetto = order.CalculateNetto(order.OrderedProducts);
             var result = _mapper.Map<ViewOrder>(order);
@@ -58,7 +58,7 @@ namespace OrderManagment.Services
 
         public async Task<ViewProduct> GetProductById(int Id)
         {
-            var product = _context.Products.FirstOrDefault(c => c.Id == Id);
+            var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == Id);
             var result = _mapper.Map<ViewProduct>(product);
             return result;
         }
@@ -91,7 +91,7 @@ namespace OrderManagment.Services
         }
         public async Task<ViewOrderProducts> GetOrderProductsById(int Id)
         {
-            var orderproduct = _context.OrderProducts.Include(c => c.Product).FirstOrDefault(c => c.Id == Id);
+            var orderproduct = await _context.OrderProducts.Include(c => c.Product).FirstOrDefaultAsync(c => c.Id == Id);
             var result = _mapper.Map<ViewOrderProducts>(orderproduct);
             return result;
         }
@@ -127,7 +127,7 @@ namespace OrderManagment.Services
         }
         public async Task<ViewContractor> GetContractorById(int Id)
         {
-            var contractor = _context.Contractors.FirstOrDefault(c => c.Id == Id);
+            var contractor = await _context.Contractors.FirstOrDefaultAsync(c => c.Id == Id);
             var result = _mapper.Map<ViewContractor>(contractor);
             return result;
         }

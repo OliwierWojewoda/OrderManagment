@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { ViewOrder } from '../models/ViewOrder';
 import { ViewProduct } from '../models/ViewProduct';
 import { ViewContractor } from '../models/ViewContractor';
+import { ViewOrderProducts } from '../models/ViewOrderProducts';
+import { NewOrderProducts } from '../models/NewOrderProducts';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,5 +37,21 @@ export class OrderManagmentService {
   public updateProduct(product: ViewProduct): Observable<ViewProduct[]> {
     return this.http.put<ViewProduct[]>(`${environment.apiUrl}/Products/Update${product.id}`,
     product);
+  }
+  public getOrderById(id: string): Observable<ViewOrder> {
+    return this.http.get<ViewOrder>(`${environment.apiUrl}/Orders/GetBy${id}`);
+  }
+  public updateOrder(order: ViewOrder): Observable<ViewOrder[]> {
+    return this.http.put<ViewOrder[]>(`${environment.apiUrl}/Orders/Update${order.id}`,
+    order);
+  } 
+  public addProduct(product: ViewProduct): Observable<ViewProduct[]> {
+    return this.http.post<ViewProduct[]>(`${environment.apiUrl}/Products/Add`,product);
+  }
+  public addContractor(contractor: ViewContractor): Observable<ViewContractor[]> {
+    return this.http.post<ViewContractor[]>(`${environment.apiUrl}/Contractors/Add`,contractor);
+  }
+  public addOrderProducts(orderProducts:NewOrderProducts): Observable<NewOrderProducts[]> {
+    return this.http.post<NewOrderProducts[]>(`${environment.apiUrl}/OrderedProducts/Add`,orderProducts);
   }
 }

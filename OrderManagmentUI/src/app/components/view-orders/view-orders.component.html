@@ -1,5 +1,5 @@
-<p>view-orders works!</p>
-<table class="table table-bordered table-dark">
+<p class="text-center">Orders</p>
+<table class="table table-bordered">
     <thead>
       <tr>
       <th >ID</th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
      <tr *ngFor="let order of orders">
-      <td >{{order.id}}</td>
+      <td >{{order.id}}<a [routerLink]="['/editOrder',order.id]">View</a></td>
       <td >{{order.createdAt | date:'yyyy-MM-dd'}}</td>
       <td >{{order.contractor.name}}<a [routerLink]="['/editContractor',order.contractor.id]">View</a></td>
       <td >{{order.overallBrutto}}</td>

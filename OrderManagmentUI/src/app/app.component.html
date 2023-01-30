@@ -1,10 +1,27 @@
-<div class="navbar">
-    <div class="menubar">
-      <ul class="Operations">
-        <li><a routerLink="productsList">All Products</a></li>
-        <li><a routerLink="/">All Orders</a></li>
-        <li><a routerLink="contractorsList">All Contractors</a></li>
-      </ul>
-    </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Order Managment System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="productsList">Products</a>
+      </li>   
+      <li class="nav-item">
+        <a class="nav-link" routerLink="contractorsList">All Contractors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="addContractor">Add Contractor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="addProduct">Add Product</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>

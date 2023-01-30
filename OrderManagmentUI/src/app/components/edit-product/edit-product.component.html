@@ -18,12 +18,8 @@
             <input type="text" id="vat" name="vat" [(ngModel)]="productDetails.vat">
         </div>
         <div class="inputs">
-            <label for="bruttoPrice">BruttoPrice: </label>
-            <input type="text" id="bruttoPrice" name="bruttoPrice" [(ngModel)]="productDetails.bruttoPrice">
-        </div>
-        <div class="inputs">
             <label for="nettoPrice">NettoPrice: </label>
-            <input type="text" id="nettoPrice" name="nettoPrice" [ngModel]="productDetails.nettoPrice">
+            <input type="text" id="nettoPrice" name="nettoPrice" [(ngModel)]="productDetails.nettoPrice">
         </div> 
         <button id="savebutton" type="submit">Save</button>
     </form>

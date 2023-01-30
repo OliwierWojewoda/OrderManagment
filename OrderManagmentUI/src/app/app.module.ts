@@ -11,6 +11,8 @@ import { ViewOrderProductsComponent } from './components/view-order-products/vie
 import { EditContractorComponent } from './components/edit-contractor/edit-contractor.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddContractorComponent } from './components/add-contractor/add-contractor.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     ViewOrderProductsComponent,
     EditContractorComponent,
     EditProductComponent,
+    AddProductComponent,
+    AddContractorComponent,
   ],
   imports: [
     BrowserModule,

@@ -50,6 +50,7 @@ export class ViewOrderProductsComponent implements OnInit {
        .subscribe({ 
          next: (orderProduct) => {
            this.router.navigate(['/editOrder',this.newOrderProduct.orderId]);
+           window.location.reload();
          }
        });
      }

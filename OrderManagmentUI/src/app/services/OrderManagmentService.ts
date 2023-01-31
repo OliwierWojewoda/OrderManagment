@@ -58,4 +58,11 @@ export class OrderManagmentService {
   public addOrder(order:NewOrder): Observable<NewOrder[]> {
     return this.http.post<NewOrder[]>(`${environment.apiUrl}/Orders/Add`,order);
   }
+  public updateOrderProducts(orderProducts: NewOrderProducts): Observable<NewOrderProducts[]> {
+    return this.http.put<NewOrderProducts[]>(`${environment.apiUrl}/OrderedProducts/Update${orderProducts.id}`,
+    orderProducts);
+  }
+  public getOrderProductsById(id: string): Observable<ViewOrderProducts> {
+    return this.http.get<ViewOrderProducts>(`${environment.apiUrl}/OrderedProducts/GetBy${id}`);
+  }
 }

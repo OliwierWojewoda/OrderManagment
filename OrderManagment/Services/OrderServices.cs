@@ -120,6 +120,7 @@ namespace OrderManagment.Services
         {
             var orderProducts = _context.OrderProducts.Find(Id);
             _mapper.Map(newOrderProducts, orderProducts);
+            orderProducts.Product = _context.Products.Find(newOrderProducts.ProductId);
             orderProducts.NettoPrice = orderProducts.Product.NettoPrice * orderProducts.Quantity;
             orderProducts.BruttoPrice = orderProducts.Product.BruttoPrice * orderProducts.Quantity;
             await _context.SaveChangesAsync();

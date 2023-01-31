@@ -1,0 +1,30 @@
+
+
+
+<div class="m-5 text-center">
+    <h1 class="text-center">Edit Order Product</h1>
+    <div style="border:1px solid black;">
+       <form id="form" #form="ngForm" (ngSubmit)="updateOrderProducts()">
+        <div class="m-3 col-xs-3">
+            <label for="id">ID: </label>
+            <input class="form-control" type="text" id="id" readonly name="id" [(ngModel)]="orderedProducts.id">
+        </div>
+        <div class="m-3 col-xs-3">
+            <label for="name">ProductID: </label>
+            <input class="form-control" type="text" id="name" name="name" [(ngModel)]="orderedProducts.productId">
+        </div>
+        <div class="m-3 col-xs-3">
+            <label for="city">Quantity: </label>
+            <input class="form-control" type="text" id="city" name="city" [(ngModel)]="orderedProducts.quantity">
+        </div>
+        <div class="m-3 col-xs-3">
+            <label for="orderid">OrderID: </label>
+            <input placeholder="{{orderedProducts.orderId}}" class="form-control" type="text" id="orderid" readonly name="orderid" [(ngModel)]="orderedProducts.orderId">
+        </div>  
+        <div class="m-3 col-xs-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+      </form>
+    </div>
+    </div>
+    <app-view-products></app-view-products>

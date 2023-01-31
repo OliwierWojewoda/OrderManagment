@@ -5,6 +5,7 @@ import { AddOrderProductsComponent } from './components/add-order-products/add-o
 import { AddOrderComponent } from './components/add-order/add-order.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditContractorComponent } from './components/edit-contractor/edit-contractor.component';
+import { EditOrderProductsComponent } from './components/edit-order-products/edit-order-products.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { ViewContractorsComponent } from './components/view-contractors/view-contractors.component';
 import { ViewOrderProductsComponent } from './components/view-order-products/view-order-products.component';
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'addOrderProducts/:id',
     component:AddOrderProductsComponent
+  },
+  {
+    path: 'editOrderProducts/:orderid/:id',
+    component:EditOrderProductsComponent
   },
 ]
 

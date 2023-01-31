@@ -27,7 +27,6 @@ export class ViewOrderProductsComponent implements OnInit {
           .subscribe({
             next: (orderDetails) => {
               this.orderDetails = orderDetails;
-              console.log(orderDetails)
             }
           })
         }
@@ -45,7 +44,6 @@ export class ViewOrderProductsComponent implements OnInit {
 
      addOrderProducts(orderProduct:NewOrderProducts){
       this.newOrderProduct.orderId=this.orderDetails.id
-       console.log(this.newOrderProduct)
       this.service.addOrderProducts(this.newOrderProduct)
        .subscribe({ 
          next: (orderProduct) => {

@@ -18,4 +18,13 @@ contractors: ViewContractor[] = [];
           }
          });
 }
+deleteContractor(id: number){
+  this.ordermanagmentservice.deleteContractor(id.toString())
+  .subscribe({
+    next: (response) => 
+    {
+      window.location.reload();
+    }
+  })
+}
 }

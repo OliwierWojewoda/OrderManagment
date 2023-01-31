@@ -40,7 +40,8 @@
     </thead>
     <tbody>
      <tr *ngFor="let order of orderDetails.orderedProducts">
-      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrderProducts',orderDetails.id,order.id]">Edit</a></td>
+      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrderProducts',orderDetails.id,order.id]">Edit</a>
+        <button class="btn btn-danger" type="button" (click)="deleteOrderProducts(order.id!)">Delete</button></td>
       <td >{{order.quantity}}</td>
       <td >{{order.product.name}}<a class="btn btn-info" [routerLink]="['/editProduct',order.product.id]">View</a></td>
       <td >{{order.nettoPrice}}</td>

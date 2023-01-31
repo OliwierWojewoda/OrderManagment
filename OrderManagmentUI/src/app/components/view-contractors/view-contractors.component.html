@@ -12,7 +12,8 @@
     </thead>
     <tbody>
      <tr *ngFor="let contractor of contractors">
-      <td >{{contractor.id}}<a class="btn btn-primary" [routerLink]="['/editContractor',contractor.id]">View</a></td>
+      <td >{{contractor.id}}<a class="btn btn-primary" [routerLink]="['/editContractor',contractor.id]">View</a>
+        <button class="btn btn-danger" type="button" (click)="deleteContractor(contractor.id!)">Delete</button></td>
       <td >{{contractor.name}}</td>
       <td >{{contractor.postalCode}}</td>
       <td >{{contractor.city}}</td>

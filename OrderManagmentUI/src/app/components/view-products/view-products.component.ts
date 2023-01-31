@@ -16,6 +16,15 @@ export class ViewProductsComponent implements OnInit {
          next: (products) => {
            this.products = products
          }
-        });
+        });       
+}
+deleteProduct(id: number){
+  this.ordermanagmentservice.deleteProduct(id.toString())
+  .subscribe({
+    next: (response) => 
+    {
+      window.location.reload();
+    }
+  })
 }
 }

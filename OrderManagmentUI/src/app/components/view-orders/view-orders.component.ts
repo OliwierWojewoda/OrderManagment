@@ -17,5 +17,14 @@ export class ViewOrdersComponent implements OnInit {
           this.orders = orders
         }
        });
-
-}}
+}
+deleteOrder(id: number){
+  this.ordermanagmentservice.deleteOrder(id.toString())
+  .subscribe({
+    next: (response) => 
+    {
+      window.location.reload();
+    }
+  })
+}
+}

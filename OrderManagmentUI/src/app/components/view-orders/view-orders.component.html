@@ -12,7 +12,8 @@
     </thead>
     <tbody>
      <tr *ngFor="let order of orders">
-      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrder',order.id]">View</a></td>
+      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrder',order.id]">View</a>
+        <button class="btn btn-danger" type="button" (click)="deleteOrder(order.id!)">Delete</button></td>
       <td >{{order.createdAt | date:'yyyy-MM-dd'}}</td>
       <td >{{order.contractor.name}}<a class="btn btn-primary" [routerLink]="['/editContractor',order.contractor.id]">View</a></td>
       <td >{{order.overallBrutto}}</td>

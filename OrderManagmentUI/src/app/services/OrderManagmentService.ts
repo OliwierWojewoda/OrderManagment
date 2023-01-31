@@ -65,4 +65,16 @@ export class OrderManagmentService {
   public getOrderProductsById(id: string): Observable<ViewOrderProducts> {
     return this.http.get<ViewOrderProducts>(`${environment.apiUrl}/OrderedProducts/GetBy${id}`);
   }
+  public deleteOrder(id: string): Observable<ViewOrder> {
+    return this.http.delete<ViewOrder>(`${environment.apiUrl}/Orders/Delete${id}`);
+  }
+  public deleteOrderProducts(id: string): Observable<ViewOrderProducts> {
+    return this.http.delete<ViewOrderProducts>(`${environment.apiUrl}/OrderedProducts/Delete${id}`);
+  }
+  public deleteContractor(id: string): Observable<ViewContractor> {
+    return this.http.delete<ViewContractor>(`${environment.apiUrl}/Contractors/Delete${id}`);
+  }
+  public deleteProduct(id: string): Observable<ViewProduct> {
+    return this.http.delete<ViewProduct>(`${environment.apiUrl}/Products/Delete${id}`);
+  }
 }

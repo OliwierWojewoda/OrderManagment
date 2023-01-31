@@ -52,5 +52,14 @@ export class ViewOrderProductsComponent implements OnInit {
          }
        });
      }
+     deleteOrderProducts(id: number){
+      this.service.deleteOrderProducts(id.toString())
+      .subscribe({
+        next: (response) => 
+        {
+          window.location.reload();
+        }
+      })
+    }
   }
 

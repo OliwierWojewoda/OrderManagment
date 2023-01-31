@@ -12,7 +12,8 @@
   </thead>
   <tbody>
    <tr *ngFor="let product of products">
-    <td >{{product.id}}<a class="btn btn-primary" [routerLink]="['/editProduct',product.id]">View</a></td>
+    <td >{{product.id}}<a class="btn btn-primary" [routerLink]="['/editProduct',product.id]">View</a>
+      <button class="btn btn-danger" type="button" (click)="deleteProduct(product.id!)">Delete</button></td>
     <td >{{product.name}}</td>
     <td >{{product.vat}}</td>
     <td >{{product.nettoPrice}}</td>

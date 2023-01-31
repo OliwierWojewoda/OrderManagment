@@ -77,4 +77,10 @@ export class OrderManagmentService {
   public deleteProduct(id: string): Observable<ViewProduct> {
     return this.http.delete<ViewProduct>(`${environment.apiUrl}/Products/Delete${id}`);
   }
+  public searchProducts(word: string): Observable<ViewProduct[]> {
+    return this.http.get<ViewProduct[]>(`${environment.apiUrl}/Products/Search${word}`);
+  }
+  public searchContractors(word: string): Observable<ViewContractor[]> {
+    return this.http.get<ViewContractor[]>(`${environment.apiUrl}/Contractors/Search${word}`);
+  }
 }

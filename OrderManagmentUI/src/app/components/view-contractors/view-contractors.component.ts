@@ -9,6 +9,7 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 })
 export class ViewContractorsComponent implements OnInit {
 contractors: ViewContractor[] = [];
+enteredSearchValue=''
     constructor(private ordermanagmentservice: OrderManagmentService){}
        ngOnInit() : void{
          this.ordermanagmentservice.getContractors()
@@ -26,5 +27,19 @@ deleteContractor(id: number){
       window.location.reload();
     }
   })
+}
+onSearchTextChanged(){
+  if(this.enteredSearchValue.length!=0)
+  {
+    this.ordermanagmentservice.searchContractors(this.enteredSearchValue)
+        .subscribe({
+         next: (contractors) => {
+           this.contractors = contractors
+         }
+        });       
+  }
+  else{
+    this.ngOnInit();
+  }
 }
 }

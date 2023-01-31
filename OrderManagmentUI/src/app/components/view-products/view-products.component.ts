@@ -9,6 +9,7 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 })
 export class ViewProductsComponent implements OnInit {
    products: ViewProduct[] = [];
+   enteredSearchValue=''
    constructor(private ordermanagmentservice: OrderManagmentService){}
       ngOnInit() : void{
         this.ordermanagmentservice.getProducts()
@@ -27,4 +28,19 @@ deleteProduct(id: number){
     }
   })
 }
+onSearchTextChanged(){
+  if(this.enteredSearchValue.length!=0)
+  {
+    this.ordermanagmentservice.searchProducts(this.enteredSearchValue)
+        .subscribe({
+         next: (products) => {
+           this.products = products
+         }
+        });       
+  }
+  else{
+    this.ngOnInit();
+  }
 }
+}
+

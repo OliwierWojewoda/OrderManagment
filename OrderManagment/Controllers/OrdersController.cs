@@ -126,5 +126,15 @@ namespace OrderManagment.Controllers
         {
             return Ok(await _orderservice.DeleteContractor(id));
         }
+        [HttpGet("Contractors/Search{searchWord}")]
+        public async Task<ActionResult<List<ViewContractor>>> SearchContractors(string searchWord)
+        {
+            return Ok(await _orderservice.SearchContractors(searchWord));
+        }
+        [HttpGet("Products/Search{searchWord}")]
+        public async Task<ActionResult<List<ViewContractor>>> SearchProducts(string searchWord)
+        {
+            return Ok(await _orderservice.SearchProducts(searchWord));
+        }
     }
 }

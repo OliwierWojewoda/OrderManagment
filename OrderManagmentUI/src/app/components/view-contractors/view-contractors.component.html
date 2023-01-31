@@ -1,4 +1,8 @@
 <h1 class="text-center">Contractors List</h1>
+<div class="m-3 col-xs-3">
+  <label for="nettoPrice">Search: </label>
+  <input class="form-control" type="text" [(ngModel)]="enteredSearchValue" placeholder="Search contractors" (input)="onSearchTextChanged()" >
+</div> 
 <div class="m-3">
 <table class="table table-bordered ">
     <thead>

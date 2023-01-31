@@ -135,7 +135,7 @@ namespace OrderManagment.Services
         public async Task<List<ViewContractor>> GetAllContractors()
         {
             return await _context.Contractors.Select(c => _mapper.Map<ViewContractor>(c)).ToListAsync();
-        }      
+        }
         public async Task<List<ViewContractor>> DeleteContractor(int Id)
         {
             Contractor contractor = _context.Contractors.First(c => c.Id == Id);
@@ -156,6 +156,34 @@ namespace OrderManagment.Services
             _mapper.Map(newContractor, contractor);
             await _context.SaveChangesAsync();
             return await _context.Contractors.Select(c => _mapper.Map<ViewContractor>(c)).ToListAsync();
+        }
+        public async Task<List<ViewContractor>> SearchContractors(string searchWord)
+        {
+            searchWord.ToLower();
+            var contractors = await _context.Contractors.Select(c => _mapper.Map<ViewContractor>(c)).ToListAsync();
+            var result = new List<ViewContractor>();
+            foreach (var contractor in contractors)
+            {
+                if (contractor.Id.ToString().Contains(searchWord) || contractor.Name.ToLower().Contains(searchWord))
+                {
+                    result.Add(contractor);
+                } 
+            }
+            return result;
+        }
+        public async Task<List<ViewProduct>> SearchProducts(string searchWord)
+        {
+            searchWord.ToLower();
+            var products = await _context.Products.Select(c => _mapper.Map<ViewProduct>(c)).ToListAsync();
+            var result = new List<ViewProduct>();
+            foreach (var product in products)
+            {
+                if (product.Id.ToString().Contains(searchWord) || product.Name.ToLower().Contains(searchWord))
+                {
+                    result.Add(product);
+                }
+            }
+            return result;
         }
     }
 }

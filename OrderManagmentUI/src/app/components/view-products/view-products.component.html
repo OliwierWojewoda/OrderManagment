@@ -1,4 +1,5 @@
-<p class="text-center">Products</p>
+<h1 class="text-center">Products</h1>
+<div class="m-3">
  <table class="table table-bordered">
   <thead>
     <tr>
@@ -11,11 +12,12 @@
   </thead>
   <tbody>
    <tr *ngFor="let product of products">
-    <td >{{product.id}}<a [routerLink]="['/editProduct',product.id]">View</a></td>
+    <td >{{product.id}}<a class="btn btn-primary" [routerLink]="['/editProduct',product.id]">View</a></td>
     <td >{{product.name}}</td>
     <td >{{product.vat}}</td>
     <td >{{product.nettoPrice}}</td>
     <td >{{product.bruttoPrice}}</td>
     </tr>
   </tbody>
-</table> 
+</table>
+</div> 

@@ -1,0 +1,17 @@
+<h1>Add Prodcuct</h1>> 
+<form id="form3" #form="ngForm" (ngSubmit)="addOrderProducts(newOrderProduct)" >
+    <div class="inputs">
+        <label for="id">OrderID: </label>
+        <input type="text" placeholder="{{newOrderProduct.orderId}}" id="id" readonly name="id" [(ngModel)]="newOrderProduct.orderId">
+    </div>
+    <div class="inputs">
+        <label for="productid">Product: </label>
+        <input type="text" id="productid" name="productid" [(ngModel)]="newOrderProduct.productId">
+    </div>
+    <div class="inputs">
+        <label for="quantity">Quantity </label>
+        <input type="text" id="quantity" name="quantity" [(ngModel)]="newOrderProduct.quantity">
+    </div> 
+    <button id="savebutton" type="submit">Save</button>
+</form>
+<app-view-products></app-view-products>

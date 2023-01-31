@@ -1,4 +1,5 @@
-<p class="text-center">Contractors List</p>
+<h1 class="text-center">Contractors List</h1>
+<div class="m-3">
 <table class="table table-bordered ">
     <thead>
       <tr>
@@ -11,7 +12,7 @@
     </thead>
     <tbody>
      <tr *ngFor="let contractor of contractors">
-      <td >{{contractor.id}}<a [routerLink]="['/editContractor',contractor.id]">View</a></td>
+      <td >{{contractor.id}}<a class="btn btn-primary" [routerLink]="['/editContractor',contractor.id]">View</a></td>
       <td >{{contractor.name}}</td>
       <td >{{contractor.postalCode}}</td>
       <td >{{contractor.city}}</td>
@@ -19,3 +20,4 @@
       </tr>
     </tbody>
   </table> 
+</div>

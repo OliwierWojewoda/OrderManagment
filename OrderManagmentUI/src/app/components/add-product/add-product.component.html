@@ -1,24 +1,22 @@
-<p>add-product works!</p>
-<div id="outerdiv">
-    <h1>Add New Product</h1>
-    <div id="formdiv"> 
-    <form id="form" #form="ngForm" (ngSubmit)="addProduct(newProduct)">
-        <div class="inputs">
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" [(ngModel)]="newProduct.name">
-        </div>
-
-        <div class="inputs">
-            <label for="surName">Vat: </label>
-            <input type="text" id="surName" name="surName" [(ngModel)]="newProduct.vat">
-        </div>       
-        <div class="inputs">
-            <label for="Birtdate">Netto: </label>
-            <input type="text" id="birthDate" name="birthDate" [(ngModel)]="newProduct.nettoPrice">
-        </div>
-        <div class="inputs">
-            <button id="savebutton" type="submit">Save</button>
-        </div>
-    </form>
- </div>
+<div class="m-5 text-center">
+<h1 class="text-center">Add New Product</h1>
+<div style="border:1px solid black;">
+   <form id="form" #form="ngForm" (ngSubmit)="addProduct(newProduct)">
+    <div class="m-3 col-xs-3">
+        <label for="name">Name: </label>
+        <input class="form-control" type="text" id="name" name="name" [(ngModel)]="newProduct.name">
+    </div>
+    <div class="m-3 col-xs-3">
+        <label for="surName">Vat: </label>
+        <input class="form-control" type="text" id="surName" name="surName" [(ngModel)]="newProduct.vat">
+    </div>
+    <div class="m-3 col-xs-3">
+        <label  for="Birtdate">Netto: </label>
+        <input class="form-control" type="text" id="birthDate" name="birthDate" [(ngModel)]="newProduct.nettoPrice">
+    </div>   
+    <div class="m-3 col-xs-3">
+    <button type="submit" class="btn btn-primary">Add</button>
+</div>
+  </form>
+</div>
 </div>

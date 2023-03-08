@@ -21,6 +21,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IOrderServices, OrderServices>();
+builder.Services.AddScoped<IOrderProductsServices, OrderProductsServices>();
+builder.Services.AddScoped<IContractorServices, ContractorServices>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

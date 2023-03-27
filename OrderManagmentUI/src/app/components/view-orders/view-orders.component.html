@@ -1,24 +1,37 @@
 <div class="m-3">
-<h1 class="text-center">Orders</h1>
-<table class="table table-bordered">
+  <h1 class="text-center">Orders</h1>
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
-      <th >ID</th>
-      <th >CreationDate</th>
-      <th >ContractorName</th>
-      <th >OverallBrutto</th>
-      <th >OverallNetto</th>
-    </tr>
+        <th>ID</th>
+        <th>CreationDate</th>
+        <th>ContractorName</th>
+        <th>OverallBrutto</th>
+        <th>OverallNetto</th>
+      </tr>
     </thead>
     <tbody>
-     <tr *ngFor="let order of orders">
-      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrder',order.id]">View</a>
-        <button class="btn btn-danger" type="button" (click)="deleteOrder(order.id!)">Delete</button></td>
-      <td >{{order.createdAt | date:'yyyy-MM-dd'}}</td>
-      <td >{{order.contractor.name}}<a class="btn btn-primary" [routerLink]="['/editContractor',order.contractor.id]">View</a></td>
-      <td >{{order.overallBrutto}}</td>
-      <td >{{order.overallNetto}}</td>
+      <tr *ngFor="let order of orders">
+        <td>
+          {{order.id}}
+          <div class="row float-end">
+            <div class="col-md-12">
+              <a class="btn btn-primary" [routerLink]="['/editOrder',order.id]">View</a>
+              <button class="btn btn-danger" type="button" (click)="deleteOrder(order.id!)">Delete</button>
+            </div>
+          </div>
+        </td>
+        <td>{{order.createdAt | date:'yyyy-MM-dd'}}</td>
+        <td>{{order.contractor.name}}
+          <div class="row float-end">
+            <div class="col-md-12">
+              <a class="btn btn-primary" [routerLink]="['/editContractor',order.contractor.id]">Edit</a>
+            </div>
+          </div>
+        </td>
+        <td>{{order.overallBrutto}}</td>
+        <td>{{order.overallNetto}}</td>
       </tr>
     </tbody>
-  </table>   
-  </div>
+  </table>
+</div>

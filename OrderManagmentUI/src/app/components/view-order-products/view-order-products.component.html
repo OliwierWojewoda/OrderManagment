@@ -1,51 +1,70 @@
-       <div class="m-3" >
-            <h1 class="text-center">View Order</h1>
-            <form  id="form" #form="ngForm" (ngSubmit)="updateOrder()" >
-                <div class="row align-items-center g-3">
-                    <div class="col-auto">
-                        <label for="id">ID: </label>
-                        <input class="form-control" type="text" id="id" readonly name="id" [(ngModel)]="orderDetails.id">
-                    </div>
-                    <div class="col-auto">
-                        <label for="name">Date: </label>
-                        <input class="form-control" type="text" id="name" readonly name="name" [ngModel]="orderDetails.createdAt | date:'yyyy-MM-dd'">
-                    </div>
-                    <div class="col-auto">
-                        <label for="vat">Contractor: </label>
-                        <input class="form-control" readonly type="text" id="vat" name="vat" [(ngModel)]="orderDetails.contractor.name">
-                    </div>
-                    <div class="col-auto">
-                        <label for="bruttoPrice">BruttoPrice: </label>
-                        <input class="form-control"  readonly type="text" id="bruttoPrice" name="bruttoPrice" [(ngModel)]="orderDetails.overallBrutto">
-                    </div>
-                    <div class="col-auto">
-                        <label for="nettoPrice">NettoPrice: </label>
-                        <input class="form-control"  readonly type="text" id="nettoPrice" name="nettoPrice" [ngModel]="orderDetails.overallNetto">
-                    </div>
-                    <div class="m-3" >
-                    <a class="btn btn-primary" style="width:20%" [routerLink]="['/addOrderProducts',orderDetails.id]">Add Order Products</a>
-                </div>
-                </div>
-            </form>
-        </div>       
-<table class="table table-bordered">
+<div class="m-3">
+    <h1 class="text-center">View Order</h1>
+    <form id="form" #form="ngForm" (ngSubmit)="updateOrder()">
+        <div class="row align-items-center g-3">
+            <div class="col-auto">
+                <label for="id">ID: </label>
+                <input class="form-control" type="text" id="id" readonly name="id" [(ngModel)]="orderDetails.id">
+            </div>
+            <div class="col-auto">
+                <label for="name">Date: </label>
+                <input class="form-control" type="text" id="name" readonly name="name"
+                    [ngModel]="orderDetails.createdAt | date:'yyyy-MM-dd'">
+            </div>
+            <div class="col-auto">
+                <label for="vat">Contractor: </label>
+                <input class="form-control" readonly type="text" id="vat" name="vat"
+                    [(ngModel)]="orderDetails.contractor.name">
+            </div>
+            <div class="col-auto">
+                <label for="bruttoPrice">BruttoPrice: </label>
+                <input class="form-control" readonly type="text" id="bruttoPrice" name="bruttoPrice"
+                    [(ngModel)]="orderDetails.overallBrutto">
+            </div>
+            <div class="col-auto">
+                <label for="nettoPrice">NettoPrice: </label>
+                <input class="form-control" readonly type="text" id="nettoPrice" name="nettoPrice"
+                    [ngModel]="orderDetails.overallNetto">
+            </div>
+            <div class="m-3">
+                <a class="btn btn-primary" style="width:20%" [routerLink]="['/addOrderProducts',orderDetails.id]">Add
+                    new products to this order</a>
+            </div>
+        </div>
+    </form>
+</div>
+<table class="table table-bordered table-striped">
     <thead>
-      <tr>
-      <th >ID</th>
-      <th >Quantity</th>
-      <th >ProductName</th>
-      <th >Netto</th>
-      <th >Brutto</th>
-    </tr>
+        <tr>
+            <th>ID</th>
+            <th>Quantity</th>
+            <th>ProductName</th>
+            <th>Netto</th>
+            <th>Brutto</th>
+        </tr>
     </thead>
     <tbody>
-     <tr *ngFor="let order of orderDetails.orderedProducts">
-      <td >{{order.id}}<a class="btn btn-primary" [routerLink]="['/editOrderProducts',orderDetails.id,order.id]">Edit</a>
-        <button class="btn btn-danger" type="button" (click)="deleteOrderProducts(order.id!)">Delete</button></td>
-      <td >{{order.quantity}}</td>
-      <td >{{order.product.name}}<a class="btn btn-info" [routerLink]="['/editProduct',order.product.id]">View</a></td>
-      <td >{{order.nettoPrice}}</td>
-      <td >{{order.bruttoPrice}}</td>
-      </tr>
+        <tr *ngFor="let order of orderDetails.orderedProducts">
+            <td>{{order.id}}
+                <div class="row float-end">
+                    <div class="col-md-12">
+                        <a id="" class="btn btn-primary"
+                            [routerLink]="['/editOrderProducts',orderDetails.id,order.id]">Edit</a>
+                        <button id="deletebutt" class="btn btn-danger" type="button"
+                            (click)="deleteOrderProducts(order.id!)">Delete</button>
+                    </div>
+                </div>
+            </td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.product.name}}
+                <div class="row float-end">
+                    <div class="col-md-12">
+                        <a class="btn btn-info" [routerLink]="['/editProduct',order.product.id]">View</a>
+                    </div>
+                </div>
+            </td>
+            <td>{{order.nettoPrice}}</td>
+            <td>{{order.bruttoPrice}}</td>
+        </tr>
     </tbody>
-  </table> 
+</table>

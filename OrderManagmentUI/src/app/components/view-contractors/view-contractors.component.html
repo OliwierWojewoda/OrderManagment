@@ -1,28 +1,35 @@
 <h1 class="text-center">Contractors List</h1>
 <div class="m-3 col-xs-3">
   <label for="nettoPrice">Search: </label>
-  <input class="form-control" type="text" [(ngModel)]="enteredSearchValue" placeholder="Search contractors" (input)="onSearchTextChanged()" >
-</div> 
+  <input class="form-control" type="text" [(ngModel)]="enteredSearchValue" placeholder="Search contractors"
+    (input)="onSearchTextChanged()">
+</div>
 <div class="m-3">
-<table class="table table-bordered ">
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
-      <th >ID</th>
-      <th >Name</th>
-      <th >PostalCode</th>
-      <th >City</th>
-      <th >Address</th>
-    </tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>PostalCode</th>
+        <th>City</th>
+        <th>Address</th>
+      </tr>
     </thead>
     <tbody>
-     <tr *ngFor="let contractor of contractors">
-      <td >{{contractor.id}}<a class="btn btn-primary" [routerLink]="['/editContractor',contractor.id]">View</a>
-        <button class="btn btn-danger" type="button" (click)="deleteContractor(contractor.id!)">Delete</button></td>
-      <td >{{contractor.name}}</td>
-      <td >{{contractor.postalCode}}</td>
-      <td >{{contractor.city}}</td>
-      <td >{{contractor.address}}</td>
+      <tr *ngFor="let contractor of contractors">
+        <td>{{contractor.id}}
+          <div class="row float-end">
+            <div class="col-md-12">
+              <a class="btn btn-primary" [routerLink]="['/editContractor',contractor.id]">Edit</a>
+              <button class="btn btn-danger" type="button" (click)="deleteContractor(contractor.id!)">Delete</button>
+            </div>
+          </div>
+        </td>
+        <td>{{contractor.name}}</td>
+        <td>{{contractor.postalCode}}</td>
+        <td>{{contractor.city}}</td>
+        <td>{{contractor.address}}</td>
       </tr>
     </tbody>
-  </table> 
+  </table>
 </div>

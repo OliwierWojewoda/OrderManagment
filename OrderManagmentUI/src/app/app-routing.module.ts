@@ -7,6 +7,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { EditContractorComponent } from './components/edit-contractor/edit-contractor.component';
 import { EditOrderProductsComponent } from './components/edit-order-products/edit-order-products.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ViewContractorsComponent } from './components/view-contractors/view-contractors.component';
 import { ViewOrderProductsComponent } from './components/view-order-products/view-order-products.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'editOrderProducts/:orderid/:id',
     component:EditOrderProductsComponent
+  },
+  {
+    path: 'statistics',
+    component:StatisticsComponent
   },
 ]
 

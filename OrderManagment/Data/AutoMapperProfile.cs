@@ -23,6 +23,7 @@ namespace OrderManagment.Data
             CreateMap<Contractor, ViewContractor>();
             CreateMap<ViewContractor, Contractor>();
             CreateMap<AddContractor, Contractor>();
+            CreateMap<Contractor, ContractorWithStats>();
         }
     }
 }

@@ -47,5 +47,10 @@ namespace OrderManagment.Controllers
         {
             return Ok(await _contracorservice.SearchContractors(searchWord));
         }
+        [HttpGet("Contractors/TopContractors")]
+        public async Task<ActionResult<List<ContractorWithStats>>> TopContractors()
+        {
+            return Ok(await _contracorservice.TopContractors());
+        }
     }
 }

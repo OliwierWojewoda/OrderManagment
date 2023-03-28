@@ -60,5 +60,10 @@ namespace OrderManagment.Services
             }
             return result;
         }
+        public async Task<List<ContractorWithStats>> TopContractors()
+        {
+            var result = await _context.Contractors.FromSqlRaw("select Contractors.Id,Max(Contractors.Name) as Name,Max(Contractors.City) as City,Max(Contractors.Address) as Address,Max(Contractors.PostalCode) as PostalCode,Sum(OrderProducts.Quantity*OrderProducts.NettoPrice) as MoneySpent from Contractors join Orders on Orders.ContractorId = Contractors.Id join OrderProducts on OrderProducts.OrderId = Orders.Id join Products on Products.Id = OrderProducts.ProductId group by Contractors.Id").Select(c => _mapper.Map<ContractorWithStats>(c)).ToListAsync();
+            return result;
+        }
     }
 }

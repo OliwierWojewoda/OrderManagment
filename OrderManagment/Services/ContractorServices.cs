@@ -83,5 +83,20 @@ namespace OrderManagment.Services
                         .ToListAsync();
             return result;
         }
+        public async Task<List<TopCitiesByContractors>> TopCitiesByContractors()
+        {
+            var result = await (from c in _context.Contractors
+                                group c by c.City into grp
+                                orderby grp.Count() descending
+                                select new TopCitiesByContractors
+                                {
+                                    City = grp.Key,
+                                    Contractors = grp.Count()
+                                })
+           .OrderByDescending(c => c.Contractors)
+           .Take(3)
+           .ToListAsync();
+            return result;
+        }
     }
 }

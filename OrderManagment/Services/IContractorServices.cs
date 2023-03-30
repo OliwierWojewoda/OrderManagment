@@ -11,5 +11,6 @@ namespace OrderManagment.Services
         Task<List<ViewContractor>> UpdateContractor(int Id, AddContractor newContractor);
         Task<List<ViewContractor>> SearchContractors(string searchWord);
         Task<List<ContractorWithStats>> TopContractorsByMoneySpent();
+        Task<List<TopCitiesByContractors>> TopCitiesByContractors();
     }
 }

@@ -52,5 +52,10 @@ namespace OrderManagment.Controllers
         {
             return Ok(await _contracorservice.TopContractorsByMoneySpent());
         }
+        [HttpGet("Contractors/TopCitiesByContractors")]
+        public async Task<ActionResult<List<TopCitiesByContractors>>> TopCitiesByContractors()
+        {
+            return Ok(await _contracorservice.TopCitiesByContractors());
+        }
     }
 }

@@ -98,5 +98,22 @@ namespace OrderManagment.Services
            .ToListAsync();
             return result;
         }
+        public async Task<List<TopCitiesByIncome>> TopCitiesByIncome()
+        {
+            var result = await (from c in _context.Contractors
+                                join o in _context.Orders on c.Id equals o.Contractor.Id
+                                join od in _context.OrderProducts on o.Id equals od.OrderId
+                                join p in _context.Products on od.Product.Id equals p.Id
+                                group od by c.City into grp
+                                orderby grp.Count() descending
+                                select new TopCitiesByIncome
+                                {
+                                    City = grp.Key,
+                                    Income = grp.Sum(od => od.BruttoPrice)
+                                })
+           .Take(3)
+           .ToListAsync();
+            return result;
+        }
     }
 }

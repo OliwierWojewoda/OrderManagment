@@ -43,10 +43,10 @@ namespace OrderManagment.Controllers
         {
             return Ok(await _orderservice.DeleteOrder(id));
         }
-        [HttpGet("Orders/GetTopOrdersByMoneySpent")]
-        public async Task<ActionResult<List<OrderWithStats>>> GetTopOrdersByMoneySpent()
+        [HttpGet("Orders/GetTopOrdersByIncome")]
+        public async Task<ActionResult<List<OrderWithStats>>> GetTopOrdersByIncome()
         {
-            return Ok(await _orderservice.GetTopOrdersByMoneySpent());
+            return Ok(await _orderservice.GetTopOrdersByIncome());
 
         }
     }

@@ -55,7 +55,7 @@ namespace OrderManagment.Services
             await _context.SaveChangesAsync();
             return await _context.Orders.Include(c => c.OrderedProducts).ThenInclude(t => t.Product).Include(c => c.Contractor).Select(c => _mapper.Map<ViewOrder>(c)).ToListAsync();
         }
-        public async Task<List<OrderWithStats>> GetTopOrdersByMoneySpent()
+        public async Task<List<OrderWithStats>> GetTopOrdersByIncome()
         {
             var result = await (from o in _context.Orders
                          join od in _context.OrderProducts on o.Id equals od.OrderId
@@ -66,7 +66,7 @@ namespace OrderManagment.Services
                          select new OrderWithStats
                          {
                              Id = grp.Key.Id,
-                             TotalValue = grp.Sum(od => od.BruttoPrice),
+                             Income = grp.Sum(od => od.BruttoPrice),
                              ContractorName = grp.Key.Name
                          }).Take(3).ToListAsync();
 

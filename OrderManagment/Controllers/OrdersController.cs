@@ -42,6 +42,12 @@ namespace OrderManagment.Controllers
         public async Task<ActionResult<List<ViewOrder>>> DeleteOrder(int id)
         {
             return Ok(await _orderservice.DeleteOrder(id));
-        }  
+        }
+        [HttpGet("Orders/GetTopOrdersByMoneySpent")]
+        public async Task<ActionResult<List<OrderWithStats>>> GetTopOrdersByMoneySpent()
+        {
+            return Ok(await _orderservice.GetTopOrdersByMoneySpent());
+
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace OrderManagment.Services
         Task<List<ViewOrder>> DeleteOrder(int Id);
         Task<ViewOrder> GetOrderById(int Id);
         Task<List<ViewOrder>> UpdateOrder(int Id, AddOrder newOrder);
-   
+        Task<List<OrderWithStats>> GetTopOrdersByMoneySpent();
     }
 }

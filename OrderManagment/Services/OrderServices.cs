@@ -54,8 +54,24 @@ namespace OrderManagment.Services
             order.Contractor = _context.Contractors.First(c => c.Id == newOrder.ContractorId);
             await _context.SaveChangesAsync();
             return await _context.Orders.Include(c => c.OrderedProducts).ThenInclude(t => t.Product).Include(c => c.Contractor).Select(c => _mapper.Map<ViewOrder>(c)).ToListAsync();
-        } 
-         
-      
+        }
+        public async Task<List<OrderWithStats>> GetTopOrdersByMoneySpent()
+        {
+            var result = await (from o in _context.Orders
+                         join od in _context.OrderProducts on o.Id equals od.OrderId
+                         join p in _context.Products on od.Product.Id equals p.Id
+                         join c in _context.Contractors on o.Contractor.Id equals c.Id
+                         group od by new { o.Id, c.Name } into grp
+                         orderby grp.Sum(od => od.BruttoPrice) descending
+                         select new OrderWithStats
+                         {
+                             Id = grp.Key.Id,
+                             TotalValue = grp.Sum(od => od.BruttoPrice),
+                             ContractorName = grp.Key.Name
+                         }).Take(3).ToListAsync();
+
+            return result;
+        }
+
     }
 }

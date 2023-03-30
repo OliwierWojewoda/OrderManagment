@@ -76,7 +76,7 @@ namespace OrderManagment.Services
                              City = grp.Max(c => c.contractor.City),
                              Address = grp.Max(c => c.contractor.Address),
                              PostalCode = grp.Max(c => c.contractor.PostalCode),
-                             MoneySpent = grp.Sum(c => c.orderProduct.Quantity * c.orderProduct.NettoPrice)
+                             MoneySpent = grp.Sum(c => c.orderProduct.BruttoPrice)
                          })
                          .OrderByDescending(c => c.MoneySpent)
                         .Take(3)

@@ -72,7 +72,7 @@ namespace OrderManagment.Services
                                 {
                                     Name = grp.Key,
                                     TotalSold = grp.Count(),
-                                    TotalEarned = grp.Sum(od => od.Quantity * od.BruttoPrice)
+                                    TotalEarned = grp.Sum(od => od.BruttoPrice)
                                 }).OrderByDescending(c => c.TotalEarned)
                         .Take(3)
                         .ToListAsync();

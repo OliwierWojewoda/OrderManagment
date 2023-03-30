@@ -44,9 +44,14 @@ namespace OrderManagment.Controllers
             return Ok(await _productServices.DeleteProduct(id));
         }
         [HttpGet("Products/Search{searchWord}")]
-        public async Task<ActionResult<List<ViewContractor>>> SearchProducts(string searchWord)
+        public async Task<ActionResult<List<ViewProduct>>> SearchProducts(string searchWord)
         {
             return Ok(await _productServices.SearchProducts(searchWord));
+        }
+        [HttpGet("Products/TopSaledProducts")]
+        public async Task<ActionResult<List<ProductWithStats>>> GetTopSaledProducts()
+        {
+            return Ok(await _productServices.GetTopSaledProducts());
         }
     }
 }

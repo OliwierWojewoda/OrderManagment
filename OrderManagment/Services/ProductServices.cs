@@ -62,5 +62,21 @@ namespace OrderManagment.Services
             }
             return result;
         }
+        public async Task<List<ProductWithStats>> GetTopSaledProducts()
+        {
+            var result = await (from o in _context.Orders
+                                join od in _context.OrderProducts on o.Id equals od.OrderId
+                                join p in _context.Products on od.Product.Id equals p.Id
+                                group od by p.Name into grp
+                                select new ProductWithStats
+                                {
+                                    Name = grp.Key,
+                                    TotalSold = grp.Count(),
+                                    TotalEarned = grp.Sum(od => od.Quantity * od.BruttoPrice)
+                                }).OrderByDescending(c => c.TotalEarned)
+                        .Take(3)
+                        .ToListAsync();
+            return result;
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace OrderManagment.Services
         Task<List<ViewContractor>> AddContractor(AddContractor newContractor);
         Task<List<ViewContractor>> UpdateContractor(int Id, AddContractor newContractor);
         Task<List<ViewContractor>> SearchContractors(string searchWord);
-        Task<List<ContractorWithStats>> TopContractors();
+        Task<List<ContractorWithStats>> TopContractorsByMoneySpent();
     }
 }

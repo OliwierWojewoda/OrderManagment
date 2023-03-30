@@ -7,7 +7,7 @@
         public string City { get; set; }
         public string PostalCode { get; set; }
         public string Address { get; set; }
-        public int MoneySpent { get; set; }
+        public double MoneySpent { get; set; }
 
     }
 }

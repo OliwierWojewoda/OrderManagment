@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using OrderManagment.Data;
 using OrderManagment.Dto;
 using OrderManagment.Models;
+using System;
+using System.Linq;
 
 namespace OrderManagment.Services
 {
@@ -60,9 +62,25 @@ namespace OrderManagment.Services
             }
             return result;
         }
-        public async Task<List<ContractorWithStats>> TopContractors()
+        public async Task<List<ContractorWithStats>> TopContractorsByMoneySpent()
         {
-            var result = await _context.Contractors.FromSqlRaw("select Contractors.Id,Max(Contractors.Name) as Name,Max(Contractors.City) as City,Max(Contractors.Address) as Address,Max(Contractors.PostalCode) as PostalCode,Sum(OrderProducts.Quantity*OrderProducts.NettoPrice) as MoneySpent from Contractors join Orders on Orders.ContractorId = Contractors.Id join OrderProducts on OrderProducts.OrderId = Orders.Id join Products on Products.Id = OrderProducts.ProductId group by Contractors.Id").Select(c => _mapper.Map<ContractorWithStats>(c)).ToListAsync();
+            var result = await (from contractor in _context.Contractors
+                         join order in _context.Orders on contractor.Id equals order.Contractor.Id
+                         join orderProduct in _context.OrderProducts on order.Id equals orderProduct.OrderId
+                         join product in _context.Products on orderProduct.Product.Id equals product.Id
+                         group new { contractor, orderProduct } by contractor.Id into grp
+                         select new ContractorWithStats
+                         {
+                             Id = grp.Key,
+                             Name = grp.Max(c => c.contractor.Name),
+                             City = grp.Max(c => c.contractor.City),
+                             Address = grp.Max(c => c.contractor.Address),
+                             PostalCode = grp.Max(c => c.contractor.PostalCode),
+                             MoneySpent = grp.Sum(c => c.orderProduct.Quantity * c.orderProduct.NettoPrice)
+                         })
+                         .OrderByDescending(c => c.MoneySpent)
+                        .Take(3)
+                        .ToListAsync();
             return result;
         }
     }

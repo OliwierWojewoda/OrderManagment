@@ -27,8 +27,8 @@
         </td>
         <td>{{product.name}}</td>
         <td>{{product.vat}}</td>
-        <td>{{product.nettoPrice}}</td>
-        <td>{{product.bruttoPrice}}</td>
+        <td>{{product.nettoPrice |number:'1.2-2' }} PLN</td>
+        <td>{{product.bruttoPrice |number:'1.2-2' }} PLN</td>
       </tr>
     </tbody>
   </table>

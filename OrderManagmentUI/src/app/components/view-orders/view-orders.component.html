@@ -29,8 +29,8 @@
             </div>
           </div>
         </td>
-        <td>{{order.overallBrutto}}</td>
-        <td>{{order.overallNetto}}</td>
+        <td>{{order.overallBrutto |number:'1.2-2' }} PLN</td>
+        <td>{{order.overallNetto| number:'1.2-2'}} PLN</td>
       </tr>
     </tbody>
   </table>

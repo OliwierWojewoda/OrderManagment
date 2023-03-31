@@ -63,8 +63,8 @@
                     </div>
                 </div>
             </td>
-            <td>{{order.nettoPrice}}</td>
-            <td>{{order.bruttoPrice}}</td>
+            <td>{{order.nettoPrice|number:'1.2-2' }} PLN</td>
+            <td>{{order.bruttoPrice|number:'1.2-2' }} PLN</td>
         </tr>
     </tbody>
 </table>

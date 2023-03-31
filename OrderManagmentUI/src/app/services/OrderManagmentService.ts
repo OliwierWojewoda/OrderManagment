@@ -8,6 +8,11 @@ import { ViewContractor } from '../models/ViewContractor';
 import { ViewOrderProducts } from '../models/ViewOrderProducts';
 import { NewOrderProducts } from '../models/NewOrderProducts';
 import { NewOrder } from '../models/NewOrder';
+import { TopCitiesByIncome } from '../models/StatsModels/TopCitiesByIncome';
+import { TopCitiesByContractors } from '../models/StatsModels/TopCitiesByContractors';
+import { ContractorWithStats } from '../models/StatsModels/ContractorWithStats';
+import { OrderWithStats } from '../models/StatsModels/OrderWithStats';
+import { ProductWithStats } from '../models/StatsModels/ProductWithStats';
 @Injectable({
   providedIn: 'root'
 })
@@ -83,4 +88,19 @@ export class OrderManagmentService {
   public searchContractors(word: string): Observable<ViewContractor[]> {
     return this.http.get<ViewContractor[]>(`${environment.apiUrl}/Contractors/Search${word}`);
   }
+  public getTopCitiesByIncome(): Observable<TopCitiesByIncome[]> {
+    return this.http.get<TopCitiesByIncome[]>(`${environment.apiUrl}/Contractors/TopCitiesByIncome`);
+  } 
+  public getTopCitiesByContractors(): Observable<TopCitiesByContractors[]> {
+    return this.http.get<TopCitiesByContractors[]>(`${environment.apiUrl}/Contractors/TopCitiesByContractors`);
+  } 
+  public getTopContractorsByMoneySpent(): Observable<ContractorWithStats[]> {
+    return this.http.get<ContractorWithStats[]>(`${environment.apiUrl}/Contractors/TopContractorsByMoneySpent`);
+  } 
+  public getGetTopOrdersByIncome(): Observable<OrderWithStats[]> {
+    return this.http.get<OrderWithStats[]>(`${environment.apiUrl}/Orders/GetTopOrdersByIncome`);
+  } 
+  public getTopProductsSaled(): Observable<ProductWithStats[]> {
+    return this.http.get<ProductWithStats[]>(`${environment.apiUrl}/Products/TopSaledProducts`);
+  } 
 }

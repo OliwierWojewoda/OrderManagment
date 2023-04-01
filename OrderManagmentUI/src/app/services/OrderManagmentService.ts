@@ -103,4 +103,7 @@ export class OrderManagmentService {
   public getTopProductsSaled(): Observable<ProductWithStats[]> {
     return this.http.get<ProductWithStats[]>(`${environment.apiUrl}/Products/TopSaledProducts`);
   } 
+  public getMostProductsSaled(): Observable<ProductWithStats[]> {
+    return this.http.get<ProductWithStats[]>(`${environment.apiUrl}/Products/MostSaledProducts`);
+  } 
 }

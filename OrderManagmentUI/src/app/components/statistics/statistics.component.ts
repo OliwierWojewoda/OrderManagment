@@ -18,6 +18,7 @@ export class StatisticsComponent implements OnInit {
   ContractorStats: ContractorWithStats[] = []
   TopCitiesIncome: TopCitiesByIncome[] = []
   TopCitiesContractors: TopCitiesByContractors[] = []
+  MostProductsSold:ProductWithStats[] = []
   constructor(private ordermanagmentservice: OrderManagmentService){}
      ngOnInit() : void{
        this.ordermanagmentservice.getTopProductsSaled()
@@ -48,6 +49,12 @@ export class StatisticsComponent implements OnInit {
        .subscribe({
         next: (TopCitiesIncome) => {
           this.TopCitiesIncome = TopCitiesIncome
+        }
+       })
+       this.ordermanagmentservice.getMostProductsSaled()
+       .subscribe({
+        next: (MostProductsSold) => {
+          this.MostProductsSold = MostProductsSold
         }
        })
 }}

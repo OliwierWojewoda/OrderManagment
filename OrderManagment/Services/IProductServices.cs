@@ -11,5 +11,6 @@ namespace OrderManagment.Services
         Task<List<ViewProduct>> DeleteProduct(int Id);
         Task<List<ViewProduct>> SearchProducts(string searchWord);
         Task<List<ProductWithStats>> GetTopSaledProducts();
+        Task<List<ProductWithStats>> GetMostSaledProducts();
     }
 }

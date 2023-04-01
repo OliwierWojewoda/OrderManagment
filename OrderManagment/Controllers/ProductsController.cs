@@ -53,5 +53,10 @@ namespace OrderManagment.Controllers
         {
             return Ok(await _productServices.GetTopSaledProducts());
         }
+        [HttpGet("Products/MostSaledProducts")]
+        public async Task<ActionResult<List<ProductWithStats>>> GetMostSaledProducts()
+        {
+            return Ok(await _productServices.GetMostSaledProducts());
+        }
     }
 }

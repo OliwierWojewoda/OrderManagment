@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewContractor } from 'src/app/models/ViewContractor';
+import { ContractorManagmentService } from 'src/app/services/ContractorManagmentService';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 
 @Component({
@@ -10,7 +11,7 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 export class ViewContractorsComponent implements OnInit {
 contractors: ViewContractor[] = [];
 enteredSearchValue=''
-    constructor(private ordermanagmentservice: OrderManagmentService){}
+    constructor(private ordermanagmentservice: ContractorManagmentService){}
        ngOnInit() : void{
          this.ordermanagmentservice.getContractors()
          .subscribe({

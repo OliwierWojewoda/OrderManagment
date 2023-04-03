@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewContractor } from 'src/app/models/ViewContractor';
+import { ContractorManagmentService } from 'src/app/services/ContractorManagmentService';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 
 @Component({
@@ -16,7 +17,7 @@ export class AddContractorComponent implements OnInit {
     address: '',
     postalCode: ''
   }
-  constructor(private service: OrderManagmentService, private router: Router){}
+  constructor(private service: ContractorManagmentService, private router: Router){}
     ngOnInit() : void{}
      addContractor(contractor: ViewContractor){
       this.service.addContractor(this.newContractor)

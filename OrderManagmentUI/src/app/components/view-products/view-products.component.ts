@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewProduct } from 'src/app/models/ViewProduct';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
+import { ProductManagmentService } from 'src/app/services/ProductManagmentService';
 
 @Component({
   selector: 'app-view-products',
@@ -10,9 +11,9 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 export class ViewProductsComponent implements OnInit {
    products: ViewProduct[] = [];
    enteredSearchValue=''
-   constructor(private ordermanagmentservice: OrderManagmentService){}
+   constructor(private service: ProductManagmentService){}
       ngOnInit() : void{
-        this.ordermanagmentservice.getProducts()
+        this.service.getProducts()
         .subscribe({
          next: (products) => {
            this.products = products
@@ -20,7 +21,7 @@ export class ViewProductsComponent implements OnInit {
         });       
 }
 deleteProduct(id: number){
-  this.ordermanagmentservice.deleteProduct(id.toString())
+  this.service.deleteProduct(id.toString())
   .subscribe({
     next: (response) => 
     {
@@ -31,7 +32,7 @@ deleteProduct(id: number){
 onSearchTextChanged(){
   if(this.enteredSearchValue.length!=0)
   {
-    this.ordermanagmentservice.searchProducts(this.enteredSearchValue)
+    this.service.searchProducts(this.enteredSearchValue)
         .subscribe({
          next: (products) => {
            this.products = products

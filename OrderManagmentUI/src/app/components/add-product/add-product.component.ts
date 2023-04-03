@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewProduct } from 'src/app/models/ViewProduct';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
+import { ProductManagmentService } from 'src/app/services/ProductManagmentService';
 
 @Component({
   selector: 'app-add-product',
@@ -16,7 +17,7 @@ export class AddProductComponent implements OnInit {
     vat:0,
     bruttoPrice:0,
  }
- constructor(private service: OrderManagmentService, private router: Router){}
+ constructor(private service: ProductManagmentService, private router: Router){}
    ngOnInit() : void{}
    addProduct(product: ViewProduct){
      this.service.addProduct(this.newProduct)

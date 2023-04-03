@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewOrderProducts } from 'src/app/models/NewOrderProducts';
-import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
+import { OrderProductsManagmentService } from 'src/app/services/OrderProductsManagmentService';
 
 @Component({
   selector: 'app-add-order-products',
@@ -10,7 +10,7 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 })
 export class AddOrderProductsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private service:OrderManagmentService,private router: Router) { }
+  constructor(private route: ActivatedRoute,private service:OrderProductsManagmentService,private router: Router) { }
   @Input() orderedProducts?: NewOrderProducts;
   newOrderProduct: NewOrderProducts= new NewOrderProducts()
   ngOnInit(): void { 
@@ -21,8 +21,7 @@ export class AddOrderProductsComponent implements OnInit {
           }
         })   
       }
-     addOrderProducts(orderProduct:NewOrderProducts){
-      
+     addOrderProducts(orderProduct:NewOrderProducts){  
       this.service.addOrderProducts(this.newOrderProduct)     
        .subscribe({ 
          next: (orderProduct) => {

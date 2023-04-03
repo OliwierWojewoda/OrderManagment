@@ -5,6 +5,7 @@ import { ViewOrder } from 'src/app/models/ViewOrder';
 import { ViewOrderProducts } from 'src/app/models/ViewOrderProducts';
 import { ViewProduct } from 'src/app/models/ViewProduct';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
+import { OrderProductsManagmentService } from 'src/app/services/OrderProductsManagmentService';
 
 @Component({
   selector: 'app-view-order-products',
@@ -13,7 +14,8 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 })
 export class ViewOrderProductsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private service:OrderManagmentService,private router: Router) { }
+  constructor(private route: ActivatedRoute,private orderservice:OrderManagmentService,
+    private orderproductservice:OrderProductsManagmentService,private router: Router) { }
   @Input() order?: ViewOrder;
   @Input() orderedProducts?: NewOrderProducts;
   orderDetails:ViewOrder=new ViewOrder()
@@ -23,7 +25,7 @@ export class ViewOrderProductsComponent implements OnInit {
       next: (params) =>{
         const id = params.get('id');
         if(id) {
-          this.service.getOrderById(id)
+          this.orderservice.getOrderById(id)
           .subscribe({
             next: (orderDetails) => {
               this.orderDetails = orderDetails;
@@ -34,7 +36,7 @@ export class ViewOrderProductsComponent implements OnInit {
     })
   } 
     updateOrder(){
-     this.service.updateOrder(this.orderDetails)
+     this.orderservice.updateOrder(this.orderDetails)
      .subscribe({
        next: (response) => {
          this.router.navigate(['/']);
@@ -44,7 +46,7 @@ export class ViewOrderProductsComponent implements OnInit {
 
      addOrderProducts(orderProduct:NewOrderProducts){
       this.newOrderProduct.orderId=this.orderDetails.id
-      this.service.addOrderProducts(this.newOrderProduct)
+      this.orderproductservice.addOrderProducts(this.newOrderProduct)
        .subscribe({ 
          next: (orderProduct) => {
            this.router.navigate(['/editOrder',this.newOrderProduct.orderId]);
@@ -53,7 +55,7 @@ export class ViewOrderProductsComponent implements OnInit {
        });
      }
      deleteOrderProducts(id: number){
-      this.service.deleteOrderProducts(id.toString())
+      this.orderproductservice.deleteOrderProducts(id.toString())
       .subscribe({
         next: (response) => 
         {

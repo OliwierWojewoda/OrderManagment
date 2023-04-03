@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ViewProduct } from 'src/app/models/ViewProduct';
 import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
+import { ProductManagmentService } from 'src/app/services/ProductManagmentService';
 
 @Component({
   selector: 'app-edit-product',
@@ -10,7 +11,7 @@ import { OrderManagmentService } from 'src/app/services/OrderManagmentService';
 })
 export class EditProductComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private service:OrderManagmentService,private router: Router) { }
+  constructor(private route: ActivatedRoute,private service:ProductManagmentService,private router: Router) { }
   @Input() contractor?: ViewProduct;
   productDetails:ViewProduct=new ViewProduct()
   ngOnInit(): void {

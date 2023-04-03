@@ -3,14 +3,14 @@
     <div class="d-flex flex-row flex-wrap justify-content-around">
         <div class="card mt-3" style="width: 36rem;">
             <div class="card-header">
-                Top Cities
+                Top Cities Income
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{TopCitiesIncome[0].city}};{{TopCitiesIncome[0].income|number:'1.2-2'}}
+                <li class="list-group-item">{{TopCitiesIncome[0].city}}: Total Income -{{TopCitiesIncome[0].income|number:'1.2-2'}}
                     PLN</li>
-                <li class="list-group-item">{{TopCitiesIncome[1].city}};{{TopCitiesIncome[1].income|number:'1.2-2'}}
+                <li class="list-group-item">{{TopCitiesIncome[1].city}}: Total Income -{{TopCitiesIncome[1].income|number:'1.2-2'}}
                     PLN</li>
-                <li class="list-group-item">{{TopCitiesIncome[2].city}};{{TopCitiesIncome[2].income|number:'1.2-2'}}
+                <li class="list-group-item">{{TopCitiesIncome[2].city}}: Total Income -{{TopCitiesIncome[2].income|number:'1.2-2'}}
                     PLN</li>
             </ul>
         </div>
@@ -19,13 +19,13 @@
                 Top Orders By Income
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{OrderStats[0].id}};{{OrderStats[0].contractorName}};{{OrderStats[0].income
+                <li class="list-group-item">{{OrderStats[0].contractorName}}: Total Income -{{OrderStats[0].income
                     |number:'1.2-2' }} PLN</li>
                 <li class="list-group-item">
-                    {{OrderStats[1].id}};{{OrderStats[1].contractorName}};{{OrderStats[1].income|number:'1.2-2' }} PLN
+                    {{OrderStats[1].contractorName}}: Total Income -{{OrderStats[1].income|number:'1.2-2' }} PLN
                 </li>
                 <li class="list-group-item">
-                    {{OrderStats[2].id}};{{OrderStats[2].contractorName}};{{OrderStats[2].income|number:'1.2-2' }} PLN
+                  {{OrderStats[2].contractorName}}: Total Income -{{OrderStats[2].income|number:'1.2-2' }} PLN
                 </li>
             </ul>
         </div>
@@ -35,17 +35,17 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    {{ContractorStats[0].id}};{{ContractorStats[0].name}}
-                    ;{{ContractorStats[0].address}};{{ContractorStats[0].postalCode}}
-                    ;{{ContractorStats[0].moneySpent|number:'1.2-2' }} PLN</li>
+                    {{ContractorStats[0].name}}
+                     {{ContractorStats[0].address}} {{ContractorStats[0].postalCode}}
+                    : Total Income - {{ContractorStats[0].moneySpent|number:'1.2-2' }} PLN</li>
                 <li class="list-group-item">
-                    {{ContractorStats[1].id}};{{ContractorStats[1].name}}
-                    ;{{ContractorStats[1].address}};{{ContractorStats[1].postalCode}}
-                    ;{{ContractorStats[1].moneySpent|number:'1.2-2' }} PLN</li>
+                    {{ContractorStats[1].name}}
+                    ;{{ContractorStats[1].address}} {{ContractorStats[1].postalCode}}
+                    : Total Income -{{ContractorStats[1].moneySpent|number:'1.2-2' }} PLN</li>
                 <li class="list-group-item">
-                    {{ContractorStats[2].id}};{{ContractorStats[2].name}}
-                    ;{{ContractorStats[2].address}};{{ContractorStats[2].postalCode}}
-                    ;{{ContractorStats[2].moneySpent|number:'1.2-2' }} PLN</li>
+                    {{ContractorStats[2].name}}
+                     {{ContractorStats[2].address}} {{ContractorStats[2].postalCode}}
+                    : Total Income -{{ContractorStats[2].moneySpent|number:'1.2-2' }} PLN</li>
             </ul>
         </div>
         <div class="card mt-3" style="width: 36rem;">
@@ -54,13 +54,13 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    {{ProductStats[0].name}};{{ProductStats[0].totalSold}};{{ProductStats[0].totalEarned|number:'1.2-2'
+                    {{ProductStats[0].name}}: Copies Sold - {{ProductStats[0].totalSold}}: Total Income - {{ProductStats[0].totalEarned|number:'1.2-2'
                     }} PLN</li>
                 <li class="list-group-item">
-                    {{ProductStats[1].name}};{{ProductStats[1].totalSold}};{{ProductStats[1].totalEarned|number:'1.2-2'
+                    {{ProductStats[1].name}}: Copies Sold - {{ProductStats[1].totalSold}}: Total Income - {{ProductStats[1].totalEarned|number:'1.2-2'
                     }} PLN</li>
                 <li class="list-group-item">
-                    {{ProductStats[2].name}};{{ProductStats[2].totalSold}};{{ProductStats[2].totalEarned|number:'1.2-2'
+                    {{ProductStats[2].name}}: Copies Sold - {{ProductStats[2].totalSold}}: Total Income - {{ProductStats[2].totalEarned|number:'1.2-2'
                     }} PLN</li>
             </ul>
         </div>
@@ -70,27 +70,27 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    {{MostProductsSold[0].name}};{{MostProductsSold[0].totalSold}};{{MostProductsSold[0].totalEarned|number:'1.2-2'
+                    {{MostProductsSold[0].name}}: Copies Sold - {{MostProductsSold[0].totalSold}}: Total Income - {{MostProductsSold[0].totalEarned|number:'1.2-2'
                     }} PLN</li>
                 <li class="list-group-item">
-                    {{MostProductsSold[1].name}};{{MostProductsSold[1].totalSold}};{{MostProductsSold[1].totalEarned|number:'1.2-2'
+                    {{MostProductsSold[1].name}}: Copies Sold - {{MostProductsSold[1].totalSold}}: Total Income - {{MostProductsSold[1].totalEarned|number:'1.2-2'
                     }} PLN</li>
                 <li class="list-group-item">
-                    {{MostProductsSold[2].name}};{{MostProductsSold[2].totalSold}};{{MostProductsSold[2].totalEarned|number:'1.2-2'
+                    {{MostProductsSold[2].name}}: Copies Sold - {{MostProductsSold[2].totalSold}}: Total Income - {{MostProductsSold[2].totalEarned|number:'1.2-2'
                     }} PLN</li>
             </ul>
         </div>
         <div class="card mt-3" style="width: 36rem;">
             <div class="card-header">
-                Top Cities
+                Top Cities Contractors
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    {{TopCitiesContractors[0].city}};{{TopCitiesContractors[0].contractors}}</li>
+                    {{TopCitiesContractors[0].city}} : Contractors overall - {{TopCitiesContractors[0].contractors}}</li>
                 <li class="list-group-item">
-                    {{TopCitiesContractors[1].city}};{{TopCitiesContractors[1].contractors}}</li>
+                    {{TopCitiesContractors[1].city}} : Contractors overall - {{TopCitiesContractors[1].contractors}}</li>
                 <li class="list-group-item">
-                    {{TopCitiesContractors[2].city}};{{TopCitiesContractors[2].contractors}}</li>
+                    {{TopCitiesContractors[2].city}} : Contractors overall - {{TopCitiesContractors[2].contractors}}</li>
             </ul>
         </div>
     </div>

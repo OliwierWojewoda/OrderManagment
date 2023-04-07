@@ -38,6 +38,19 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    try {
+        await next(context);
+        }
+    catch(Exception e)
+    {
+        Console.WriteLine(e);
+        throw;
+    }
+
+});
+
 app.MapControllers();
 
 app.Run();

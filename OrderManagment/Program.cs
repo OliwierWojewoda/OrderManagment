@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OrderManagment.Data;
+using OrderManagment.Middleware;
 using OrderManagment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,18 +39,20 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.Use(async (context, next) =>
-{
-    try {
-        await next(context);
-        }
-    catch(Exception e)
-    {
-        Console.WriteLine(e);
-        throw;
-    }
+//app.Use(async (context, next) =>
+//{
+//    try {
+//        await next(context);
+//        }
+//    catch(Exception e)
+//    {
+//        Console.WriteLine(e);
+//        throw;
+//    }
 
-});
+//});
+
+app.UseMiddleware<GlobalExcpetionHandlingMiddleware>();
 
 app.MapControllers();
 
